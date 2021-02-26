@@ -35,7 +35,7 @@
 
 6. In the container terminal
     - Go to the Hadoop installation folder: `cd /usr/local/hadoop`
-    - create a folder **ynov**: ``mkdir ynov`
+    - create a folder **ynov**: `mkdir ynov`
 
 7. Copy the folder form the Host machine to the Docker container:
     `docker cp`
