@@ -7,6 +7,9 @@
 
 1. Follow the docker documentation link to install docker depending on your Operating system
 [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+  - You can execute this commands to run docker without `sudo`:
+    - `sudo usermod -aG docker $USER`
+    - `newgrp docker`
 2. Once docker installed, run this command to download the hadoop image:
   - `docker pull sequenceiq/hadoop-docker:2.7.0` : this command download the docker image in local
   - `docker run -it sequenceiq/hadoop-docker:2.7.0 /etc/bootstrap.sh -bash`: This command run a docker container from the image download in the previous command
