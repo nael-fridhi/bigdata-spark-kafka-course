@@ -7,4 +7,3 @@ This repository contains resources of big data ( Spark, Kafka, Storm ) Master's 
 4. Lab4: [Hands on Spark](docs/spark.md)
 5. Lab5: [Miniproject](docs/miniprojcet.md)
 
-
