@@ -1,6 +1,9 @@
 # Apache Kafka Lab
 
 ## Installation Kafka
+
+- We can install Kafka from binary 
+
 ```
 wget http://apache.crihan.fr/dist/kafka/0.10.2.1/kafka_2.10-0.10.2.1.tgz
 tar xzf kafka_2.10-0.10.2.1.tgz
@@ -9,12 +12,41 @@ cd kafka_2.10-0.10.2.1/
 # Run zookeeper
 ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
 
-
 # Run Kafka Server 
 ./bin/kafka-server-start.sh ./config/server.properties
-
+```
+- We can also install Kafka using the confluent community package
 
 ```
+wget -qO - https://packages.confluent.io/deb/5.2/archive.key | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://packages.confluent.io/deb/5.2 stable main"
+
+sudo apt-get update && sudo apt-get install -y openjdk-8-jre-headless confluent-community-2.12
+
+sudo systemctl start confluent-zookeeper
+
+sudo systemctl enable confluent-zookeeper
+
+sudo systemctl start confluent-kafka
+
+sudo systemctl enable confluent-kafka
+
+sudo systemctl status confluent*
+
+kafka-topics --list --bootstrap-server localhost:9092
+
+```
+
+- We can also run kafka in docker 
+
+```
+curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-kafka/master/docker-compose.yml > docker-compose.yml
+docker-compose up -d
+
+```
+
+
 ## Create topic using command line
 
 ```
