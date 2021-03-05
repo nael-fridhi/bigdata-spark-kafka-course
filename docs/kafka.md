@@ -74,16 +74,29 @@ docker-compose up -d
 # Change a topic partition
 ./bin/kafka-topics.sh --alter --zookeeper localhost:2181 --topic blabla --partitions 2
 ```
+## Run the velib Python Application
+
+[Click Here!](../src/kafka/stations/README.m)
+
 
 
 ## Run the golang Producer sample 
 
-
+1. Downlaod and install golang.
+2. Verfiy the installation by running `go version`
+3. Install the dependency kafka-go
+4. Look at the file and verify if there is configuration to modify
+5. Run the producer and check that the message produced to the topic by running a console consumer.
+`go run Producer.go`
 
 ## Run the golang Consumer sample
 
+1. Check the configuration to change in the consumer file 
+2. Run the consumer and try to put records using a console producer and check if the consumer can consume your message
+`go run Consumer.go`
 
 
-## Run the golang kafka Stream sample
+[Golang Kafka Issue](https://github.com/confluentinc/confluent-kafka-go/issues/583)
+
 
 

@@ -1,3 +1,5 @@
+package main
+
 import (
 	"fmt"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"

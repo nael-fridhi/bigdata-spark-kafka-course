@@ -11,3 +11,5 @@ Pour exécuter ces deux scripts, vous devrez installer le package [kafka-python]
 
     # Installation des dépendances.
     pip install kafka-python
+
+- **Bonus:** Ajouter un autre fichier python de streaming qui va lire du topic root et écrire dans un autre topic de votre choix les 5 stations qui contient le plus de places libres. 
