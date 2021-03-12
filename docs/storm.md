@@ -3,7 +3,6 @@
 
 ## Installation
 
-
 1. Install Java: </br>
 `sudo apt install default-jre`
 
@@ -18,9 +17,12 @@
     mvn version
     ```
 
-3. Storm installation 
-  - **Docker:**
-    - `docker-compose -f storm.yaml up -d`
+3. Storm installation
+
+  - **Docker:** [Click Here For more information](https://hub.docker.com/_/storm) 
+    - **Docker-compose cluster:** `docker-compose -f src/storm/storm.yml up -d`
+    - **Run Storm using a Standalone Container:**   `docker run -it -v $(pwd)/analytics-1.0-SNAPSHOT.jar:/analytics-1.0-SNAPSHOT.jar storm storm jar /analytics-1.0-SNAPSHOT.jar analytics.App `
+
   - **Local Machine:**
     - Install Zookeeper
         ```
@@ -56,8 +58,17 @@
         $ bin/storm ui
         ```
 
+    - **Azure HDInsight:**
+      - Setup the cluster : [Click Here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
+
+      - Submit a topology using SSH and the Storm Command: [Click Here](https://docs.microsoft.com/en-us/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux)
+      
+      - Execute the Wordcount Example on the cluster and monitor the topology using both the command line and the Web User Interface of Apache Storm.
+
 ## Run a Java topology application in a storm cluster
 
+- To Build the Java application and get the JAR package using Maven you have to run this command in the root of the project where there is the pom.xml file.
+`mvn package`
 
 ```
 storm jar <path-to-your-jar-file.jar>  <the-java-class-of-the-topology>
