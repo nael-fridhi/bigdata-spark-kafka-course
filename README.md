@@ -5,5 +5,6 @@ This repository contains resources of big data ( Spark, Kafka, Storm ) Master's 
 2. Lab2: [Hands on Storm](docs/storm.md)
 3. Lab3: [Hands on Kafka](docs/kafka.md)
 4. Lab4: [Hands on Spark](docs/spark.md)
-5. Lab5: [Miniproject](docs/miniprojcet.md)
+5. Lab5: [Hands on Airflow](docs/airflow.md)
+6. Lab6: [Miniproject](docs/miniprojcet.md)
 
