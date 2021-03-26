@@ -54,21 +54,44 @@ You can change the installation path by setting this environment variable: `AIRF
 
 
 
+## DAG
+
+1. Write the DAG below using python in the dags folder: 
+
+<img title="dag" alt="dag" src="./dag.png">
+
+
+
+
 ## Reminder 
 
-- Apache Airflow is an open source platform to programmatically author, schedule and monitor workflows.
+- Apache Airflow is an open source platform to programmatically **author**, **schedule** and **monitor** workflows.
   - Dynamic
   - Scalable
   - Interactive
   - REST API
   - Extensible
-  - Not a streaming or a data processing framework
+
+⛔️ Airflow is Not a streaming or a data processing framework
+
+
+- Main topics:
+  - Airflow Components
+  - Core Concepts
+  - Installing and Updating Airflow
+  - Interacting with airflow: CMD, User Interface, REST API
+  - DAG BASICS
+  - Monitoring
+  - XCOMS
+  - Connections
+  - Executors
+  - Parallelism
 
 
 ### Core Components  
 
-- Airflow Consist of several components:
 
+- Airflow Consist of several components:
   - Web Server: Flask UI HTTP Server provides access to DAG/task status information
   - Scheduler: The heart of Airflow Responsible for adding the necessary tasks to the queue
   - Metadata Databases: SQL Alchemy Contains information about the status of tasks, DAGs, Variables, connections, etc.
@@ -84,7 +107,6 @@ You can change the installation path by setting this environment variable: `AIRF
   - Sensor Operators: Wait for something
 
 - **Task** Instance of an Operator
-
 - **Task Instance** Represents a specific run of a task: DAG + TASK + Point in time
 
 
@@ -92,8 +114,7 @@ You can change the installation path by setting this environment variable: `AIRF
 
 - set_upstream OR set_downstream, << OR >>
 
-
-Workflow: A DAG with operator and dependencies 
+- **Workflow**: A DAG with operator and dependencies 
 
 **Task Lifecycle:** scheduled, queued, running, success
 
@@ -102,12 +123,13 @@ Workflow: A DAG with operator and dependencies
 3. Scheduler create a DagRun Object 
 
 
-
 ### Extras and providers
 
-Extras and providers are tools to be installed to the airflow server in order to interact with other systems like postgres provider or kubernetes extras.
+Extras and providers are tools to be installed to the airflow server in order to interact with other systems like postgres provider or kubernetes extras(install providers and add all the dependencies)
 
-### Others
+
+
+### Others Concepts
 
 Interacting with Airflow:
 
@@ -126,16 +148,16 @@ Interacting with Airflow:
   - airflow db init: initialize the database and generate the folders and files 
   - airflow db upgrade: upgrade airflow metadata
   - airflow db reset: remove everything in the database
-  - airflow scheduler
-  - airflow web-server
-  - airflow celery worker
-  - airflow dags unpause
+  - airflow scheduler: start scheduler
+  - airflow web-server: start web server
+  - airflow celery worker: start celery worker
+  - airflow dags unpause 
   - airflow dags pause
   - airflow dags trigger 
   - airflow dags list
   - airflow tasks list <dag_id>
-  - airflow tasks test: Used when we want to add task to make sure it works
-  - airflow dags backfill -s <start-date> -e <end-date> --reset_dagruns: rerun past dag runs
+  - airflow tasks test <dag_id> <task_id> <exeuction_date>: Used when we want to add task to make sure it works
+  - airflow dags backfill -s <start-date> -e <end-date> --reset_dagruns <dag_id>: rerun past dag runs
 
 
 - By default dag scheduled every 24 hours
